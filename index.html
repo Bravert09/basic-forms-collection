@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--以上必须写，否则移动端不会按设备宽度渲染页面。-->
+    <!-- displays site properly based on user's device -->
+    <title>Intro component with sign up form</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/general.css" />
+  </head>
+  <body>
+    <div id="intro-word-container">
+      <h1 id="title">Learn to code by watching others</h1>
+      <p id="intro">
+        See how experienced developers solve problems in real time.Watching
+        script tutorials is great, but understanding how developers think is
+        invaluable.
+      </p>
+    </div>
+    <div class="form-container">
+      <div class="ad">
+        <strong>Try it free 7 days</strong> then $20/mo. thereafter
+      </div>
+      <!--novalidate 会让浏览器不再自动执行原生验证和提示-->
+      <form id="signup-form" novalidate>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          placeholder="First Name"
+        />
+        <span id="firstNameError" class="error"></span>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          placeholder="Last Name"
+        />
+        <span id="lastNameError" class="error"></span>
+
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email Address"
+        />
+        <span id="emailError" class="error"></span>
+
+        <input
+          type="text"
+          id="password"
+          name="password"
+          placeholder="Password"
+        />
+        <span id="passwordError" class="error"></span>
+        <button type="submit" id="claim-btn">CLAIM YOUR FREE TRAIL</button>
+        <p>
+          By clicking the button, you are agreeing to our
+          <span>Terms and Services</span>
+        </p>
+      </form>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

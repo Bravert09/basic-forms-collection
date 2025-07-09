@@ -1,0 +1,247 @@
+html {
+  font-size: 16px; /* 可以改成 10px（方便计算）或做响应式缩放 */
+}
+* {
+  box-sizing: border-box;
+}
+p {
+  margin: 0;
+}
+/** 是一个 CSS 通配符选择器（Universal Selector），表示选择所有元素。*/
+/*box-sizing: border-box;元素的宽度（width）和高度（height）包含了内边距（padding）
+和边框（border）。*/
+/*默认值：box-sizing: content-box;
+width 只包含内容，不包括 padding 和 border
+所以：实际占用宽度 = width + padding + border*/
+
+/*超出宽度的一个很好的测试方法，结合f12
+html,
+body {
+  border: 1px solid rgb(123, 48, 176);
+}*/
+
+/*body是有默认的margin*/
+body {
+  width: 100%;
+  padding: 0 20px;
+  margin: 100px 0 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(0, 100%, 74%);
+  font-family: Poppins;
+  background-image: url("../images/bg-intro-desktop.png");
+}
+
+/*自适应 + 限制最大:width: 100%; max-width: 400px*/
+#intro-word-container {
+  width: 100%;
+  max-width: 500px;
+  margin-right: 50px;
+  color: white;
+}
+h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 50px;
+}
+#intro {
+  margin-top: 40px;
+  line-height: 30px;
+  font-weight: 400;
+}
+/*属性	含义
+width: 100%	占据父元素的全部宽度
+max-width: 100%	最多不超过父元素的 100% 宽度，但不一定撑满（不会强制拉伸）
+💡建议	响应式设计里常配合写：width: 100%; max-width: XXXpx; → 更灵活控制*/
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 410px;
+}
+.ad {
+  width: 100%;
+  font-size: 15px;
+  font-size: 400;
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+  background-color: hsl(248, 32%, 49%);
+  box-shadow: 0px 5px 2px hsl(246, 25%, 77%, 0.6);
+}
+.ad > strong {
+  font-size: 700;
+}
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 400px;
+  background-color: white;
+  padding: 30px;
+  padding-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 2px hsl(249, 10%, 26%, 0.3);
+}
+/*输入框输入前后的字体颜色*/
+input::placeholder {
+  color: hsl(246, 25%, 77%);
+}
+input {
+  width: 100%;
+  height: 50px;
+  margin-top: 14px;
+  padding-left: 20px;
+  border-radius: 6px;
+  border-width: 1px;
+  border-color: hsl(246, 25%, 77%);
+  border-style: solid;
+  font-weight: 600;
+  font-size: 16px;
+  color: hsl(249, 10%, 26%);
+}
+input:focus {
+  border-style: solid;
+  outline: none; /* 去掉默认的蓝色外边框 */
+  border-color: hsl(249, 10%, 26%);
+  color: hsl(249, 10%, 26%);
+}
+input:-webkit-autofill {
+  background-color: white !important;
+}
+
+input.inputerror {
+  border: 2px solid hsl(0, 100%, 74%);
+  color: hsl(0, 100%, 74%);
+  background-image: url("../images/icon-error.svg"); /* 你可以用任意警告图标 */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px 20px;
+}
+#claim-btn {
+  width: 100%;
+  height: 50px;
+  background-color: hsl(154, 59%, 51%);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-style: none;
+  border-radius: 6px;
+  box-shadow: 0px 4px hsla(154, 47%, 33%, 0.8);
+  margin-top: 14px;
+}
+
+form > p {
+  margin-top: 10px;
+  font-size: 11px;
+  color: hsl(246, 25%, 77%);
+}
+form > p > span {
+  color: hsl(0, 100%, 74%);
+  font-weight: 700;
+}
+/*纵向排列时子元素靠右	align-self: flex-end*/
+.error {
+  align-self: flex-end;
+  color: hsl(0, 100%, 74%);
+  font-family: Poppins;
+  font-style: italic;
+  font-size: 13px;
+}
+
+/*响应式设计：保持断点之间无重叠无缝衔接*/
+/* 大屏手机、小型平板 */
+
+@media (max-width: 767px) {
+  body {
+    flex-direction: column;
+    background-image: url("../images/bg-intro-mobile.png");
+    padding-bottom: 100px;
+  }
+
+  #intro-word-container {
+    margin: 0;
+    max-width: 100%;
+    padding-bottom: 50px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+
+  #intro {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .form-container {
+    margin: 0;
+    width: 100%;
+    padding-bottom: 50px;
+  }
+
+  form {
+    padding: 20px;
+    width: 100%;
+  }
+  #claim-btn {
+    width: 100%;
+  }
+}
+/*关键原因：max-width: 450px 在默认样式里优先级更高*/
+/*横屏平板*/
+@media (min-width: 768px) and (max-width: 1025px) {
+  body {
+    flex-direction: column;
+    background-image: url("../images/bg-intro-mobile.png");
+    padding: 0 40px 100px 40px;
+  }
+
+  #intro-word-container {
+    margin: 0;
+    max-width: 640px;
+    padding-bottom: 50px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    line-height: 3.6rem;
+  }
+
+  #intro {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  .form-container {
+    margin: 0;
+    padding-bottom: 50px;
+    width: 100%;
+    max-width: 640px; /* ✅ 避免全局 max-width 限制生效 */
+  }
+  /*分不清楚max-width:100%和width：100%*/
+  .ad {
+    width: 80%;
+    
+  }
+  form {
+    padding: 20px;
+    width: 80%;
+  }
+  #claim-btn {
+    width: 100%;
+  }
+}
+/* 电脑桌面样式*/
+@media (min-width: 1025px) {
+}
