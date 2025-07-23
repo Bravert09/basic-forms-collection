@@ -1,95 +1,65 @@
-# Frontend Mentor - Intro component with sign up form
+![](./images/screenshort1.png)
+![](./images/screenshort2.png)
 
-![Design preview for the Intro component with sign up form coding challenge](./design/desktop-preview.jpg)
+# What are you most proud of?
+复习表单的html、css和js内容，顺带学习了适配；
+# What challenges did you encounter, and how did you overcome them?
+HTML:关于form表单的属性，id、name；
 
-## Welcome! 👋
+CSS：
+对齐的问题
 
-Thanks for checking out this front-end coding challenge.
+优先级
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+选择器：#(id)
+.(class)
+*(全部元素)
+input::placeholder 
+input:focus
 
-**To do this challenge, you need a basic understanding of HTML, CSS and JavaScript.**
+默认样式：body的margin、边框outline
+响应式设计：
+1.断点：电脑有限，考虑手机和平板的断点
+2.设置viewpoint
+3.百分百布局：默认：width:100% max-width:640px（注意父子关系）;
+4.弹性单位：字体单位 font-size: 2.8rem;
+5.弹性布局：flexbox + gap
+6.media@在写宽度
 
-## The challenge
+注意：box-sizing、html和body设置border测试宽度、max-width：640px全局优先；
 
-Your challenge is to build out this introductory component and get it looking as close to the design as possible.
+JS：表单验证的步骤
+1.form.addEventListener("submiit",...)
+2.阻止默认提交
+3.dom获取的是元素， .value可以取值；可以配合FormData结构取值
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
 
-Your users should be able to:
+# What would you do differently next time?（下次有什么改进？待解决的问题）
+待完成的优化点
+1. ✅️Inputs could use some consistent height (e.g. height: 50px) across screen sizes as of now when error message comes it is getting squeezed.
+2. ✅️Try adding simple hover/focus effects on buttons and inputs to enhance interactivity.
+:hover 是鼠标悬停状态
+当用户 把鼠标放在元素上（不点击）时，就会触发 :hover。
+常用于按钮变色、链接下划线、显示隐藏菜单等。
 
-- View the optimal layout for the site depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Receive an error message when the `form` is submitted if:
-  - Any `input` field is empty. The message for this error should say *"[Field Name] cannot be empty"*
-  - The email address is not formatted correctly (i.e. a correct email address should have this structure: `name@host.tld`). The message for this error should say *"Looks like this is not an email"*
+:focus 是元素获得焦点状态
+当用户 点击元素（如 input）或用键盘 Tab 键 聚焦到元素时，触发 :focus。
+常用于输入框高亮、可键盘操作时突出显示等。
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+3. ✅️Try updating the password input from type="text" to type="password".
+4. ✅️For JavaScript optimization, you can refactor error handling into a loop or function to reduce repetitive code.
+const showError = (field, message) => {
+  document.getElementById(`${field}Error`).textContent = message;
+  document.getElementById(field).classList.add("inputerror");
+}
+step1：定义数组；
+step2：定义函数（数组参数），对数组进行遍历，对每个元素进行处理；
+step3：在checkValue函数中，调用showerror和removeerror的函数，注意传参；
 
-## Where to find everything
+5.  ✅️Try adding a succe  ss message or visual feedback when all fields are valid and form is submitted.
+step1：html添加元素
+step2：设置“显示的布尔值”
+step：根据条件判断，“显示的布尔值”，去显示或者隐藏html元素
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+6. 手机优先，移动web适配，再到大屏增强
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
-
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
-
-You will find all the required assets in the `/images` folder. The assets are already optimized.
-
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
-
-## Building your project
-
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
-
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
-
-## Deploying your project
-
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
-
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
-
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
-
-## Create a custom `README.md`
-
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
-
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
-
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
-
-## Submitting your solution
-
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
-
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
-
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
