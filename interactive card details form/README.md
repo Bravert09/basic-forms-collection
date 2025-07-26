@@ -1,6 +1,12 @@
-# 1. What are you most proud of?（学到了什么？）
+# intro
+- 填写信用卡信息，包含空值、数字验证，提交后，跳转到成功的页面
+![alt text](./images/screenshort_desktop.png)
+![alt text](./images/screenshort_pad_active.png)
+![alt text](./images/screenshort_mobile.png)
+![alt text](./images/screenshort_mobile_complete.png)
 
-- balabala
+# 1. What are you most proud of?（学到了什么？）
+- 提高熟练度，但是还有一些细节和未解决的问题
 
 # 2. What challenges did you encounter, and how did you overcome them?（曾遇到和解决了什么问题？）
 
@@ -8,8 +14,6 @@
   border: 2px solid transparent; /_ 边框必须设置为 transparent _/
   border-image: linear-gradient(to bottom right, #6348fe, #610595);
   border-image-slice: 1;
-
-
 - CSS input 边框，凹凸样式，如何去掉？
   border-style:solid;
 - CSS：Can't be blank 的 span 的间距问题
