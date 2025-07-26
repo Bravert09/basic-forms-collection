@@ -1,0 +1,287 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+body,
+ul,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: Space Grotesk;
+  font-size: 14px;
+  color: #333;
+}
+img {
+  vertical-align: bottom;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  color: #333;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+header {
+  background-color: aqua;
+  height: 6.4rem;
+  background-image: url("../images/bg-main-mobile.png");
+  position: relative;
+}
+header img {
+  width: 7.6rem;
+}
+header #card-back {
+  position: absolute;
+  top: 0.85333333rem;
+  right: 0.42666667rem;
+}
+header #card-front {
+  position: absolute;
+  top: 3.36rem;
+  left: 0.42666667rem;
+}
+header #card-front-details {
+  height: 3.2rem;
+  position: absolute;
+  top: 3.84rem;
+  left: 0.53333333rem;
+}
+header span {
+  font-size: 0.24rem;
+  color: white;
+  position: absolute;
+  top: 2.72rem;
+  right: 1.49333333rem;
+  z-index: 1;
+  letter-spacing: 0.05333333rem;
+}
+form {
+  margin-top: 2.4rem;
+  margin-bottom: 1.17333333rem;
+  padding: 0 0.64rem;
+  /*鼠标按下那一刻触发（不一定松开）*/
+}
+form label {
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.32rem;
+  letter-spacing: 0.05333333rem;
+  font-weight: 500;
+  margin-top: 0.64rem;
+}
+form input::placeholder {
+  opacity: 50%;
+  color: #21092f;
+}
+form input {
+  margin-top: 0.21333333rem;
+  display: block;
+  height: 1.2rem;
+  width: 100%;
+  border-style: solid;
+  border-radius: 0.21333333rem;
+  box-shadow: none;
+  border-color: #dfdee0;
+  border-width: 0.02666667rem;
+  font-size: 0.48rem;
+  padding-left: 0.42666667rem;
+  font-weight: 500;
+  color: #21092f;
+}
+form input:hover {
+  cursor: pointer;
+}
+form input:focus {
+  outline: none;
+  /* 去掉点击时的轮廓（可选） */
+  border: 1px solid transparent;
+  /* 边框必须设置为 transparent */
+  border-image: linear-gradient(to bottom right, #6348fe, #610595);
+  border-image-slice: 1;
+  border-radius: 0.21333333rem;
+  cursor: pointer;
+}
+form input.inputerror {
+  border-color: #ff5050;
+}
+form .exp-cvc {
+  display: flex;
+  justify-content: space-between;
+  /* space-between两端对齐：第一个元素靠左边，最后一个元素靠右边。*/
+  /*justify-content: space-around 所有元素左右都留有相等的空间。*/
+  align-items: top;
+}
+form .exp-cvc .exp-inputs {
+  display: inline-block;
+}
+form .exp-cvc .exp-inputs #exp-month {
+  display: inline-block;
+  width: 2.13333333rem;
+}
+form .exp-cvc .exp-inputs #exp-year {
+  display: inline-block;
+  width: 2.13333333rem;
+}
+form .exp-cvc .cvc {
+  width: 3.6rem;
+}
+form .exp-cvc .cvc #cvc {
+  display: inline-block;
+  width: 3.6rem;
+}
+form span {
+  display: block;
+  margin-top: 0.21333333rem;
+  color: #ff5050;
+  font-size: 0.32rem;
+}
+form #exp-monthError {
+  display: inline-block;
+}
+form button {
+  margin-top: 0.53333333rem;
+  color: white;
+  line-height: 1.3;
+  font-size: 0.48rem;
+  background-color: #21092f;
+  height: 1.41333333rem;
+  width: 100%;
+  border-radius: 0.21333333rem;
+}
+form .confirm-btn:hover {
+  box-shadow: 0 4px 10px rgba(0, 17, 255, 0.5);
+  cursor: pointer;
+}
+form .confirm-btn:active {
+  background: #000000;
+  transform: scale(1.05);
+  box-shadow: 0 5px 10px rgba(31, 20, 91, 0.2);
+}
+/*box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);*/
+/*cursor: pointer;*/
+/*大屏增强-平板*/
+@media (min-width: 768px) and (max-width: 1439px) {
+  html {
+    font-size: 37.5px !important;
+  }
+  header {
+    width: 100%;
+    height: 9.06666667rem;
+    background-size: cover;
+    /* 拉满整个元素，可能会裁剪 */
+    background-repeat: no-repeat;
+  }
+  header img {
+    width: 11.92rem;
+  }
+  header #card-back {
+    top: 0.85333333rem;
+    right: 2.98666667rem;
+  }
+  header #card-front {
+    top: 4.64rem;
+    left: 2.98666667rem;
+  }
+  header #card-front-details {
+    height: 5.06666667rem;
+    top: 5.33333333rem;
+    left: 2.98666667rem;
+  }
+  header span {
+    font-size: 0.37333333rem;
+    color: white;
+    position: absolute;
+    top: 3.73333333rem;
+    right: 4.53333333rem;
+    z-index: 1;
+    letter-spacing: 0.05333333rem;
+  }
+  form {
+    padding: 0 5.12rem;
+    margin-top: 3.86666667rem;
+  }
+}
+/*大屏增强-桌面*/
+@media (min-width: 1440px) {
+  body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  html {
+    font-size: 37.5px !important;
+  }
+  header {
+    background-image: url("../images/bg-main-desktop.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 12.88rem;
+    /*背景图片高度充满整个网页（viewport）*/
+    height: 100vh;
+  }
+  header img {
+    width: 11.92rem;
+  }
+  header #card-back {
+    top: 12.42666667rem;
+    left: 6.88rem;
+  }
+  header #card-front {
+    top: 5.04rem;
+    left: 4.37333333rem;
+  }
+  header #card-front-details {
+    height: 5.04rem;
+    top: 5.78666667rem;
+    left: 4.53333333rem;
+  }
+  header span {
+    font-size: 0.32rem;
+    top: 15.46666667rem;
+    left: 16rem;
+    z-index: 1;
+    letter-spacing: 0.05333333rem;
+  }
+  form {
+    margin-left: 9.33333333rem;
+  }
+}
+/*success.html*/
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2.4rem;
+  padding: 0 0.64rem;
+}
+main #thank {
+  font-size: 0.74666667rem;
+  letter-spacing: 0.09333333rem;
+  margin-top: 0.85333333rem;
+  margin-bottom: 0.42666667rem;
+}
+main #added {
+  font-size: 0.48rem;
+  color: #adb5be;
+  line-height: 1.3;
+}
+main #continue-btn {
+  margin-top: 1.28rem;
+  color: white;
+  line-height: 1.3;
+  font-size: 0.48rem;
+  background-color: #21092f;
+  height: 1.41333333rem;
+  width: 100%;
+  border-radius: 0.21333333rem;
+}

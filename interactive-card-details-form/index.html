@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Interactive card details form</title>
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <header>
+      <img src="./images/bg-card-back.png" alt="card-back" id="card-back" />
+      <span>000</span>
+      <img src="./images/bg-card-front.png" alt="card-front" id="card-front" />
+      <img src="./images/card-details.svg" alt="" id="card-front-details"">
+    </header>
+    <form action="success.html" method="GET" id="form" >
+      <label for="card-name">Cardholder Name</label>
+      <input
+        type="text"
+        name="card-name"
+        id="card-name"
+        placeholder="e.g. Jane Appleseed"
+      />
+      <span id="card-nameError"></span>
+      <label for="card-num">Card Number</label>
+      <!--inputmode="numeric" 移动端会弹出数字键盘；-->
+      <!--pattern="[0-9]*" 是什么？正则表达式，用于匹配“任意长度的数字（可以是空）”。
+      	表单提交前验证是否为数字,不匹配：阻止提交，显示浏览器默认提示-->
+      <input
+        type="text"
+        inputmode="numeric"
+        name="card-num"
+        id="card-num"
+        placeholder="e.g. 1234 5678 9123 0000"
+      />
+      <span id="card-numError"></span>
+      <div class="exp-cvc">
+        <div class="exp-inputs">
+          <label for="exp-month">EXP. DATE (MM/YY)</label>
+          <input
+            type="text"
+            inputmode="numeric"
+            id="exp-month"
+            name="exp-month"
+            placeholder="MM"
+            maxlength="2"
+          />
+          <span id="exp-monthError"></span>
+
+          <input
+            type="text"
+            inputmode="numeric"
+            id="exp-year"
+            name="exp-year"
+            placeholder="YY"
+            maxlength="2"
+          />
+          <span id="exp-yearError"></span>
+        </div>
+        <div class="cvc">
+          <label for="cvc">CVC</label>
+          <input
+            type="text"
+            inputmode="numeric"
+            id="cvc"
+            name="cvc"
+            placeholder="e.g. 123"
+          />
+          <span id="cvcError"></span>
+        </div>
+      </div>
+      <button type="submit" class="confirm-btn" id="confirm-btn">Confirm</button>
+    </form>
+    <script src="index.js"></script>
+    <script src="./js/flexible.js"></script>
+  </body>
+</html>

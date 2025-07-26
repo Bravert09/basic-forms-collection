@@ -1,0 +1,137 @@
+header {
+  background-color: aqua;
+  height: 240px;
+  background-image: url( "../images/bg-main-mobile.png");
+  position: relative;
+  img {
+    width: 285px;
+  }
+  #card-back {
+    position: absolute;
+    top: 32px;
+    right: 16px;
+  }
+  #card-front {
+    position: absolute;
+    top: 126px;
+    left: 16px;
+  }
+  #card-front-details {
+    height: 120px;
+    position: absolute;
+    top: 144px;
+    left: 20px;
+  }
+  span {
+    font-size: 9px;
+    color: white;
+    position: absolute;
+    top: 102px;
+    right: 56px;
+    z-index: 1;
+    letter-spacing: 2px;
+  }
+}
+
+form {
+  margin-top: 90px;
+  margin-bottom: 44px;
+  padding: 024px;
+  background-color: (rgb149, 248, 246);
+  label {
+    display: block;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    margin-top: 24px;
+  }
+  input::placeholder {
+    opacity: 50%;
+    color: #21092f;
+  }
+  input {
+    margin-top: 8px;
+    display: block;
+    height: 45px;
+    width: 100%;
+
+    border-style: solid;
+
+    border-radius: 8px;
+    box-shadow: none;
+    border-color: #dfdee0;
+    border-width: 1px;
+    font-size: 18px;
+    padding-left: 16px;
+    font-weight: 500;
+    color: #21092f;
+  }
+  input:hover {
+    cursor: pointer;
+  }
+  input:focus {
+    outline: none; /*去掉点击时的轮廓（可选）*/
+    border: 1px solid transparent; /*边框必须设置为transparent*/
+    border-image: linear-gradient(tobottomright, #6348fe, #610595);
+    border-image-slice: 1;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  input.inputerror {
+    border-color: #ff5050;
+  }
+
+  .exp-cvc {
+    display: flex;
+    justify-content: space-around;
+    align-items: top;
+    .exp-inputs {
+      display: inline-block;
+      #exp-month {
+        display: inline-block;
+        width: 80px;
+      }
+      #exp-year {
+        display: inline-block;
+        width: 80px;
+      }
+    }
+    .cvc {
+      width: 135px;
+      #cvc {
+        display: inline-block;
+        width: 135px;
+      }
+    }
+  }
+  span {
+    display: block;
+    margin-top: 8px;
+    color: #ff5050;
+    font-size: 12px;
+  }
+  #exp-monthError {
+    display: inline-block;
+  }
+
+  button {
+    margin-top: 20px;
+    color: white;
+    line-height: 1.3;
+    font-size: 18px;
+    background-color: #21092f;
+    height: 53px;
+    width: 100%;
+    border-radius: 8px;
+  }
+  .confirm-btn:hover {
+    box-shadow: 04px10pxrgba (0, 17, 255, 0.5);
+    cursor: pointer;
+  }
+  /*鼠标按下那一刻触发（不一定松开）*/
+  .confirm-btn:active {
+    background: rgb(0, 0, 0);
+    box-shadow: 05px10pxrgba (31, 20, 91, 0.2);
+  }
+}
