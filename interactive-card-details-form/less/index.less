@@ -40,10 +40,10 @@ header {
 }
 
 form {
-  margin-top: (90 / @rootValue);
-  margin-bottom: (44 / @rootValue);
-  padding: 0 (24 / @rootValue);
-  //background-color: rgb(149, 248, 246);
+  width: (327 / @rootValue);
+  margin: (90 / @rootValue) auto (30 / @rootValue);
+
+  /* background-color: rgb(149, 248, 246);*/
   label {
     display: block;
     text-transform: uppercase;
@@ -62,10 +62,7 @@ form {
     height: (45 / @rootValue);
     width: 100%;
 
-    //目的：去掉边框的凹凸样式，但是失败了…
     border-style: solid;
-    //border: none;
-
     border-radius: (8 / @rootValue);
     box-shadow: none;
     border-color: #dfdee0;
@@ -136,15 +133,52 @@ form {
     width: 100%;
     border-radius: (8 / @rootValue);
   }
-  .confirm-btn:hover {
-    box-shadow: 0 4px 10px rgba(0, 17, 255, 0.5);
-    cursor: pointer;
-  }
+
   /*鼠标按下那一刻触发（不一定松开）*/
   .confirm-btn:active {
     background: rgb(0, 0, 0);
     transform: scale(1.05);
-    box-shadow: 0 5px 10px rgba(31, 20, 91, 0.2);
+    box-shadow: 0 5px 5px rgba(31, 20, 91, 0.15);
+  }
+}
+
+#success {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  img {
+    margin-top: (90 / @rootValue);
+    width: (80 / @rootValue);
+  }
+  #thank {
+    margin-top: (32 / @rootValue);
+    font-size: (28 / @rootValue);
+    letter-spacing: (3.5 / @rootValue);
+  }
+  #added {
+    margin-top: (16 / @rootValue);
+    font-size: (18 / @rootValue);
+    color: #adb5be;
+  }
+  button {
+    margin-top: (48 / @rootValue);
+    color: white;
+    line-height: 1.3;
+    font-size: (18 / @rootValue);
+    background-color: #21092f;
+    height: (53 / @rootValue);
+    width: (327 / @rootValue);
+    border-radius: (8 / @rootValue);
+  }
+}
+
+footer {
+  font-size: (14 / @rootValue);
+  margin: 0 auto (20/@rootValue);
+  text-align: center;
+  a {
+    text-decoration: underline;
+    color: #610595;
   }
 }
 
@@ -152,15 +186,25 @@ form {
 /*cursor: pointer;*/
 
 /*大屏增强-平板*/
-@media (min-width: 768px) and(max-width:1439px) {
+/*如果你们的设计稿只有“移动 + 桌面”两种 → 平板通常继承移动端逻辑（流动）。
+如果设计稿有专门的“平板版” → 那么它通常就是介于移动和桌面之间的“固定字号 + 响应布局”。*/
+@media (min-width: 768px) and (max-width: 1439px) {
   html {
-    font-size: 37.5px !important; // 或者 16px 等你希望的固定值
+    font-size: 37.5px !important; /* 或者 16px 等你希望的固定值*/
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   header {
     width: 100%;
     height: (340 / @rootValue);
     background-size: cover; /* 拉满整个元素，可能会裁剪 */
     background-repeat: no-repeat;
+    div {
+      max-width: 543px;
+    }
     img {
       width: (447 / @rootValue);
     }
@@ -190,9 +234,23 @@ form {
   form {
     padding: 0 (192 / @rootValue);
     margin-top: (145 / @rootValue);
+    width: (383 / @rootValue);
+    max-width: 500px;
+    box-sizing: content-box;
+  }
+  #success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    img {
+      margin-top: (175 / @rootValue);
+      width: (80 / @rootValue);
+    }
   }
 }
-/*大屏增强-桌面*/
+/*大屏增强-桌面1440px*/
+/*字号：固定（16px/18px，不随屏幕变化）。
+布局：响应式（flex/grid/media query 控制几列、间距、边距）。*/
 @media (min-width: 1440px) {
   body {
     display: flex;
@@ -200,16 +258,20 @@ form {
     align-items: center;
   }
   html {
-    font-size: 37.5px !important; // 或者 16px 等你希望的固定值
+    font-size: 37.5px !important; /*在桌面端，不是「只有 @media 里面的样式固定」，而是 移动端写的所有 rem 样式都会继承过来，但它们都会变成固定像素（因为你强制把根字号固定了）。*/
   }
+
   header {
     background-image: url("../images/bg-main-desktop.png");
     background-repeat: no-repeat;
-    background-size:cover;
-    width: (483 / @rootValue); /*背景图片高度充满整个网页（viewport）*/
+    background-size: cover;
+
+    width: 33vw;
+    max-width: 550px;
     height: 100vh;
+
     img {
-      width: (447 / @rootValue);
+      width: 447px;
     }
     #card-back {
       top: (466 / @rootValue);
@@ -225,45 +287,46 @@ form {
       left: (170 / @rootValue);
     }
     span {
-      font-size: (12/@rootValue);
       top: (580 / @rootValue);
       left: (600 / @rootValue);
       z-index: 1;
       letter-spacing: (2 / @rootValue);
     }
   }
+  /*响应式宽度,最大宽度限制,水平居中对齐*/
   form {
-    margin-left: (350 / @rootValue);
+    max-width: 450px;
+    width: 27vw;
+    margin: 0 auto;
+    padding: 0;
+    .confirm-btn:hover {
+      box-shadow: 0 4px 5px rgba(77, 77, 77, 0.3);
+      cursor: pointer;
+    }
+    /*当你按下鼠标时，元素同时处于 hover 和 active 两个状态。
+但是 浏览器会优先应用 :active 的样式，所以 :hover 的效果就“被覆盖”了，看起来就像没了。*/
+    .confirm-btn:active {
+      background: rgb(0, 0, 0);
+      transform: scale(1.05);
+      box-shadow: 0 5px 5px rgba(68, 45, 199, 0.5);
+    }
+  }
+
+  #success {
+    margin: 0 auto;
   }
 }
 
-/*success.html*/
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: (90 / @rootValue);
-  padding: 0 (24 / @rootValue);
-  #thank {
-    font-size: (28 / @rootValue);
-    letter-spacing: (3.5 / @rootValue);
-    margin-top: (32 / @rootValue);
-    margin-bottom: (16 / @rootValue);
-  }
-  #added {
-    font-size: (18 / @rootValue);
-    color: #adb5be;
-    line-height: 1.3;
-  }
-
-  #continue-btn {
-    margin-top: (48 / @rootValue);
-    color: white;
-    line-height: 1.3;
-    font-size: (18 / @rootValue);
-    background-color: #21092f;
-    height: (53 / @rootValue);
-    width: 100%;
-    border-radius: (8 / @rootValue);
+footer {
+  position: absolute;
+  font-size: (14 / @rootValue);
+  bottom: 2%;
+  right:30%;
+  margin: 0 auto (20/@rootValue);
+  text-align: center;
+  a {
+    text-decoration: underline;
+    color: #610595;
   }
 }
+

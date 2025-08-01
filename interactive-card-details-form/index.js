@@ -17,20 +17,7 @@ const fieldsNumAll = [
 const confirmBtn = document.getElementById("confirm-btn");
 const form = document.getElementById("form");
 
-//完成页面
-const complete = (fieldsAll, fieldsNumAll, formData) => {
-  fieldsAll.forEach(({ name }) => {
-    if (formData.get(`${name}`).trim()) {
-      fieldsNumAll.forEach(({ name }) => {
-        if (!isNaN(formData.get(`${name}`))) {
-          window.location.href = "success.html";
-        }
-      });
-    }
-  });
-};
-
-function checkValue(e, fields, fieldsNumAll) {
+function checkValue(e, fields, fieldsAll, fieldsNumAll) {
   e.preventDefault();
   const formData = new FormData(form);
   //清除错误
@@ -86,13 +73,14 @@ function checkValue(e, fields, fieldsNumAll) {
   checkBlank(fields);
 
   const isAllFilled = fieldsAll.every(
-    ({ name }) => formData.get(name).trim() !== ""
+    ({ name }) => formData.get(`${name}`).trim() !== ""
   );
   const isAllNumbers = fieldsNumAll.every(
-    ({ name }) => !isNaN(formData.get(name))
+    ({ name }) => !isNaN(formData.get(`${name}`))
   );
   if (isAllFilled && isAllNumbers) {
-    window.location.href = "success.html";
+    form.style.display = "none";
+    document.getElementById("success").style.display = "flex";
   }
 }
 
@@ -100,3 +88,12 @@ form.addEventListener("submit", (e) => {
   checkValue(e, fields, fieldsAll, fieldsNumAll);
 });
 
+document.getElementById("success").addEventListener("click", () => {
+  form.style.display = "block";
+  document.getElementById("success").style.display = "none";
+  
+  fieldsAll.forEach(({ name }) => {
+    document.getElementById(`${name}Error`).textContent = "";
+    document.getElementById(`${name}`).classList.remove("inputerror");
+  });
+});
