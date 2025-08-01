@@ -193,6 +193,7 @@ form .confirm-btn:active {
   border-radius: 0.21333333rem;
 }
 footer {
+  display: none;
   font-size: 0.37333333rem;
   margin: 0 auto 0.53333333rem;
   text-align: center;
@@ -267,6 +268,9 @@ footer a {
     margin-top: 4.66666667rem;
     width: 2.13333333rem;
   }
+  footer {
+    display: none;
+  }
 }
 /*大屏增强-桌面1440px*/
 /*字号：固定（16px/18px，不随屏幕变化）。
@@ -334,6 +338,7 @@ footer a {
   }
 }
 footer {
+  display: block;
   position: absolute;
   font-size: 0.37333333rem;
   bottom: 2%;
