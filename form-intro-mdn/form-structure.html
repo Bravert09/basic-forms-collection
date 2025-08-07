@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to structure a web form</title>
+    <style>
+      .structure-form {
+        border: 1px solid black;
+        padding: 1em;
+        width: 500px;
+        border-radius: 20px;
+      }
+      .title {
+        display: inline-block;
+        width: 200px;
+      }
+      .basic-info,
+      .pay-info {
+        margin-top: 1em;
+      }
+      button {
+        margin-top: 1em;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!--<fieldset> 元素是一种方便的用于创建具有相同目的（出于样式和语义目的）的微件组的方式。-->
+    <h2>fieldset和legend 元素</h2>
+    <form action="">
+      <fieldset>
+        <legend>Fruit juice size</legend>
+        <p>
+          <input type="radio" name="size" id="size_1" value="small" />
+          <label for="size_1">Small</label>
+        </p>
+        <p>
+          <input type="radio" name="size" id="size_2" value="medium" />
+          <label for="size_2">Medium</label>
+        </p>
+        <p>
+          <input type="radio" name="size" id="size_3" value="large" />
+          <label for="size_3">Large</label>
+        </p>
+      </fieldset>
+    </form>
+    <h2>Labels are clickable, too!标签可点击</h2>
+    <form>
+      <p>
+        <input
+          type="checkbox"
+          id="taste_1"
+          name="taste_cherry"
+          value="cherry"
+        />
+        <label for="taste_1">I like cherry</label>
+      </p>
+      <p>
+        <input
+          type="checkbox"
+          id="taste_2"
+          name="taste_banana"
+          value="banana"
+        />
+        <label for="taste_2">I like banana</label>
+      </p>
+    </form>
+
+    <h2>Multiple labels多个标签</h2>
+    <!--在多个标签的情况下，你应该将微件和它的标签嵌套在一个 <label> 元素中。-->
+    <p>必填字段后随 <span aria-label="required">*</span>。</p>
+    <!-- 这样写 -->
+    <div>
+      <label for="username">名字：</label>
+      <input id="username" type="text" name="username" required />
+      <label for="username"><span aria-label="必须">*</span></label>
+    </div>
+    <!-- 可能没有这样写好： -->
+    <label for="username">
+      <span>名字：</span>
+      <input id="username" type="text" name="username" required />
+      <span aria-label="必须">*</span>
+    </label>
+    <!-- 这样写是最好的： -->
+    <div>
+      <label for="username">名字: <span aria-label="required">*</span></label>
+      <input id="username" type="text" name="username" required />
+    </div>
+
+    <h2>Common HTML structures used with forms用于表单的通用HTML结构</h2>
+    <form action="" class="structure-form">
+      <h1>付款表单</h1>
+      <p>必需的字段已使用 * 标示。</p>
+      <!--利用section、fieldset、ul、li、p、div，来创建表单结构-->
+      <section>
+        <h2>联系人信息</h2>
+        <fieldset class="title">
+          <legend>称号</legend>
+          <ul>
+            <li>
+              <input type="radio" name="title" id="ace" />
+              <label for="ace">Ace</label><br />
+            </li>
+            <li>
+              <input type="radio" name="title" id="king" />
+              <label for="king">King</label><br />
+            </li>
+            <li>
+              <input type="radio" name="title" id="queen" />
+              <label for="queen">Queen</label><br />
+            </li>
+          </ul>
+        </fieldset>
+        <div class="basic-info">
+          <label for="name">名字: <span>*</span></label
+          ><br />
+          <input type="text" id="name" name="user_name" required />
+        </div>
+        <div class="basic-info">
+          <label for="email">邮箱: <span>*</span></label
+          ><br />
+          <input type="email" id="email" name="user_email" required />
+        </div>
+        <div class="basic-info">
+          <label for="password">密码: <span>*</span></label
+          ><br />
+          <input type="password" id="password" name="user_password" required />
+        </div>
+      </section>
+      <section>
+        <h2>付款信息</h2>
+        <div class="pay-info">
+          <label for="card-type">信用卡类型</label><br />
+          <!--下拉菜单语法-->
+          <select name="card-type" id="card-type">
+            <option value="visa">Visa</option>
+            <option value="mc">Mastercard</option>
+            <option value="amex">American Express</option>
+          </select>
+        </div>
+        <div class="pay-info">
+          <label for="card-num">卡号：<span>*</span></label
+          ><br />
+          <input type="tel" name="card-num" id="card-num" required />
+        </div>
+        <div class="pay-info">
+          <label for="exp-date">到期日：<span>*</span></label
+          ><br />
+          <input
+            type="text"
+            name="exp-date"
+            id="exp-date"
+            placeholder="MM/YY"
+            required
+          />
+        </div>
+      </section>
+      <section>
+        <button type="submit">验证付款请求</button>
+      </section>
+    </form>
+  </body>
+</html>

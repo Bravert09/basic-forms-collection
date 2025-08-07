@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>advanced form styling</title>
+    <style>
+      input[type="checkbox"] {
+        appearance: none;
+      }
+      input[type="checkbox"] {
+        position: relative;
+        width: 1em;
+        height: 1em;
+        border: 1px solid gray;
+        /* 调整文本基线上复选框的位置 */
+        vertical-align: -4px;
+        /* 在此设置，以便 Windows 的高对比度模式可以覆盖 */
+        color: green;
+      }
+      input[type="checkbox"]::before {
+        content: "✔";
+        position: absolute;
+        font-size: 1.2em;
+        right: -1px;
+        top: -0.3em;
+        visibility: hidden;
+      }
+
+      input[type="checkbox"]:checked::before {
+        /* 使用 `visibility` 而不是 `display`，以避免重新计算布局 */
+        visibility: visible;
+      }
+
+      input[type="checkbox"]:disabled {
+        border-color: black;
+        background: #ddd;
+        color: gray;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      input[type="radio"] {
+        appearance: none;
+        position: relative;
+        width: 20px;
+        height: 20px;
+        border: 2px solid gray;
+        border-radius: 10px;
+        vertical-align: -2px;
+      }
+      input[type="radio"]::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: blue;
+        position: absolute;
+        transform: translate(3px, 3px) scale(0); /* 缩小到 0，看不见 */
+        transform-origin: center; /* 缩放以圆心为基准 */
+        transition: all 0.3s ease-in;
+      }
+      input[type="radio"]:checked::before {
+        transform: translate(3px, 3px) scale(1);
+        transition: all 0.3s cubic-bezier(0.25, 0.25, 0.56, 2);
+      }
+      /*translate 用来 移动元素的位置（平移）*/
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>Harder to style</h2>
+      <p>checkbox and radio button 复选框和单选框</p>
+      <h2>appearance：控制操作系统层面的样式化</h2>
+      <p>
+        appearance: none;
+        这将尽可能阻止任何应用该属性的控件使用系统级样式，并允许你使用 CSS
+        自行创建样式。用于搜索和单选按钮/复选框等几种情况。
+      </p>
+      <form id="test-appear">
+        <p>
+          <label for="search">search: </label>
+          <input id="search" name="search" type="search" />
+        </p>
+        <p>
+          <label for="text">text: </label>
+          <input id="text" name="text" type="text" />
+        </p>
+        <p>
+          <label for="date">date: </label>
+          <input id="date" name="date" type="datetime-local" />
+        </p>
+        <p>
+          <label for="radio">radio: </label>
+          <input id="radio" name="radio" type="radio" />
+        </p>
+        <p>
+          <label for="checkbox">checkbox: </label>
+          <input id="checkbox" name="checkbox" type="checkbox" />
+        </p>
+        <p><input type="submit" value="submit" /></p>
+        <p><input type="button" value="button" /></p>
+      </form>
+    </section>
+
+    <section>
+      <h2>为复选框添加样式</h2>
+      <form id="check-radio">
+        <fieldset>
+          <legend>Fruit preferences</legend>
+          <p>
+            <label>
+              <input type="checkbox" name="fruit" value="cherry" />
+              I like cherry
+            </label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" name="fruit" value="banana" disabled />
+              I can't like banana
+            </label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" name="fruit" value="strawberry" />
+              I like strawberry
+            </label>
+          </p>
+        </fieldset>
+      </form>
+    </section>
+
+    <section>
+      <h2>为单选按钮添加样式</h2>
+      <form action="">
+        <fieldset>
+          <legend>Choose your favorite fruit</legend>
+          <ul>
+            <li>
+              <input type="radio" id="cherry" name="fruit" value="cherry" />
+              <label for="cherry">Cherry</label>
+            </li>
+            <li>
+              <input type="radio" id="banana" name="fruit" value="banana" />
+              <label for="banana">Banana</label>
+            </li>
+            <li>
+              <input
+                type="radio"
+                id="strawberry"
+                name="fruit"
+                value="strawberry"
+              />
+              <label for="strawberry">strawberry</label>
+            </li>
+          </ul>
+        </fieldset>
+      </form>
+    </section>
+    <section>
+      <h2>ugly elements无法使用CSS进行样式化</h2>
+      <ul>
+        <li>创建下拉部件时涉及的元素，包括 select、option、optgroup 和datalist。</li>
+        <li>input type="color"</li>
+        <li>与日期有关的控件，如 input type="datetime-local"</li>
+        <li>input type="range"</li>
+        <li>input type="file"</li>
+        <li>progress和meter</li>
+      </ul>
+    </section>
+  </body>
+</html>

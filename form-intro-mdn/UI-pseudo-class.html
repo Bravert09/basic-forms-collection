@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI-pseudo-class</title>
+    <style>
+      input:required {
+        border: 1px solid rgb(48, 62, 207);
+      }
+      input:optional {
+        border: 1px solid rgb(138, 138, 138);
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>都有什么样的伪类？</h2>
+      <ul>
+        <li>:hover：只在鼠标指针悬停在一个元素上时选择该元素。</li>
+        <li>
+          :focus：元素被“聚焦”时触发；常见于：输入框、按钮、可点击的链接、可交互的元素。持续存在，直到失焦。<strong
+            >谁在接受输入/操作（持久）。</strong
+          >
+        </li>
+        <li>
+          :active：元素被用户“激活”的那一瞬间。瞬间，按下时触发，松开后消失，按钮点击反馈、链接点击状态。<strong>
+            用户正在按它（瞬间）。</strong
+          >
+        </li>
+        <li>:required 和 :optional：针对必需的或可选的表单控件。</li>
+        <li>
+          :valid 和 :invalid、:in-range 和
+          :out-of-range：针对表单控件，根据对其设置的表单验证约束，或范围内/范围外，是有效/无效的。
+        </li>
+        <li>
+          :enabled 和 :disabled、:read-only 和
+          :read-write：针对启用或禁用的表单控件（例如，设置了 disabled HTML
+          属性），以及读写或只读的表单控件（例如，设置了 readonly HTML 属性）。
+        </li>
+        <li>
+          :checked、:indeterminate 和
+          :default：分别针对被选中的复选框和单选按钮，处于不确定的状态（既不被选中也不被选中），以及页面加载时默认选择的选项（例如，一个设置了
+          checked 属性的 input type="checkbox"，或者一个设置了 selected 属性的
+          option 元素）。
+        </li>
+      </ul>
+    </section>
+    <section id="required">
+      <h2>required、optional伪类</h2>
+      <form>
+        <fieldset>
+          <legend>Feedback form</legend>
+          <div>
+            <label for="fname">First name: </label>
+            <input id="fname" name="fname" type="text" required />
+          </div>
+          <div>
+            <label for="lname">Last name: </label>
+            <input id="lname" name="lname" type="text" required />
+          </div>
+          <div>
+            <label for="email">
+              Email address (include if you want a response):
+            </label>
+            <input id="email" name="email" type="email" />
+          </div>
+          <div><button>Submit</button></div>
+        </fieldset>
+      </form>
+    </section>
+
+    <section>
+      <h2>使用伪类生成内容</h2>
+      <p>
+        我们可以使用 ::before 和 ::after 伪元素以及 content
+        属性来使一大块内容出现在受影响元素的前面或后面。
+      </p>
+      <p>
+        ::before → 在元素内容的 最前面 插入<br />
+        ::after → 在元素内容的 最后面 插入
+      </p>
+      <p>必须用 content 属性（哪怕是空字符串）</p>
+    </section>
+
+
+         
+  </body>
+</html>

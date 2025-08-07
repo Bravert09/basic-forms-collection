@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>native form controls</title>
+  </head>
+  <body>
+    <header>
+      <h1>native form controls</h1>
+      <p>
+        本文内容
+        <li>
+          常见的输入（input）类型元素：button、checkbox、file、hidden、image、password、radio、reset、submit
+          和 text。
+        </li>
+        <li>所有表单部件共有的一些属性。</li>
+      </p>
+    </header>
+    <section>
+      <h2>文本输入框 Text input fields</h2>
+      <input type="text" id="comment" name="comment" value="I'm a text field" />
+      <!--另一个原生的文本框控件是 hidden input 类型。
+    它被用于创建对用户不可见的表单部件，但在发送表单时，会与其他的表单数据一起被发送到服务器-->
+      <input type="hidden" id="timestamp" name="timestamp" value="1286705410" />
+    </section>
+
+    <section>
+      <h2>
+        可选中项：复选框和单选按钮Checkable items: checkboxes and radio buttons
+      </h2>
+      <!--复选框：只有选中的，会发送name和value；如果写了checked，默认已经勾选-->
+      <input
+        type="checkbox"
+        id="questionOne"
+        name="subscribe"
+        value="yes"
+        checked
+      />
+      <fieldset>
+        <legend>Choose all the vegetables you like to eat</legend>
+        <ul>
+          <li>
+            <label for="carrots">Carrots</label>
+            <input
+              type="checkbox"
+              id="carrots"
+              name="vegetable"
+              value="carrots"
+              checked
+            />
+          </li>
+          <li>
+            <label for="peas">Peas</label>
+            <input type="checkbox" id="peas" name="vegetable" value="peas" />
+          </li>
+          <li>
+            <label for="cabbage">Cabbage</label>
+            <input
+              type="checkbox"
+              id="cabbage"
+              name="vegetable"
+              value="cabbage"
+            />
+          </li>
+        </ul>
+      </fieldset>
+ 
+      <!--几个单选按钮可以连接在一起。
+      如果它们的 name 属性共享相同的值，那么它们将被认为属于同一组的按钮。-->
+      <fieldset>
+        <legend>What is your favorite meal?</legend>
+        <ul>
+          <li>
+            <label for="soup">Soup</label>
+            <input type="radio" id="soup" name="meal" value="soup" checked />
+          </li>
+          <li>
+            <label for="curry">Curry</label>
+            <input type="radio" id="curry" name="meal" value="curry" />
+          </li>
+          <li>
+            <label for="pizza">Pizza</label>
+            <input type="radio" id="pizza" name="meal" value="pizza" />
+          </li>
+        </ul>
+      </fieldset>
+    </section>
+    <section>
+      <h2>按钮Actual buttons</h2>
+    </section>
+
+    <section>
+      <h2>文件选择器Actual buttonsFile picker</h2>
+    </section>
+
+    <section>
+      <h2>通用属性</h2>
+      <ul>
+        <li>
+            disable:false 这个布尔属性表示用户不能与元素交互。
+        </li>
+        <li>
+            name 元素的名称；这是跟表单数据一起提交的。
+        </li>
+        <li>
+            value 元素的初始值。
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>
