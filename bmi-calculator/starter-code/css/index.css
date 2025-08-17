@@ -1,0 +1,604 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+body,
+ul,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, PingFangSC-Regular, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+img {
+  vertical-align: bottom;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  color: #333;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  font-family: Inter;
+}
+p {
+  font-size: 0.42666667rem;
+  line-height: 1.5;
+  color: #5e6e85;
+}
+h1 {
+  font-size: 1.28rem;
+  line-height: 1.1;
+  letter-spacing: -0.5%;
+}
+h2 {
+  font-size: 0.85333333rem;
+  line-height: 1.1;
+  letter-spacing: -0.5%;
+}
+h4 {
+  font-size: 0.64rem;
+}
+h5 {
+  font-size: 0.53333333rem;
+  line-height: 1.5;
+  letter-spacing: -0.5%;
+}
+/*关于数值输入框的统一修改*/
+/*去掉input数值类型的默认的小箭头，Chrome, Safari, Edge */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input:focus {
+  outline: none;
+  /* 去掉input在focus，默认的外框高亮 */
+}
+.header-bg {
+  width: 100%;
+  height: 17.33333333rem;
+  background: linear-gradient(to right, rgba(214, 252, 254, 0.05), #d6e6fe);
+  border-radius: 0 0 1.73333333rem 1.73333333rem;
+  position: relative;
+}
+.hero {
+  position: absolute;
+  top: 0.85333333rem;
+  width: 8.74666667rem;
+  height: 29.22666667rem;
+  margin: 0 0.64rem 1.70666667rem;
+}
+.hero header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 0.85333333rem;
+}
+.hero header img {
+  width: 1.06666667rem;
+  height: 1.06666667rem;
+  margin-bottom: 0.85333333rem;
+}
+.hero header h1 {
+  font-size: 1.28rem;
+  line-height: 1.1;
+  letter-spacing: -0.5%;
+  margin-bottom: 0.64rem;
+}
+.hero form {
+  padding: 0.64rem;
+  background-color: white;
+  border-radius: 0.69333333rem;
+  box-shadow: 0.42666667rem 0.85333333rem 1.49333333rem rgba(143, 174, 207, 0.25);
+}
+.hero form .choose-unit {
+  margin-bottom: 0.64rem;
+  /*外圆*/
+  /* 选中后的内圆 */
+}
+.hero form .choose-unit h3 {
+  font-size: 0.61333333rem;
+  margin-bottom: 0.64rem;
+  letter-spacing: -8%;
+}
+.hero form .choose-unit .choose-unit-container {
+  display: flex;
+  justify-content: space-between;
+}
+.hero form .choose-unit label {
+  font-size: 0.42666667rem;
+  font-weight: 700;
+  position: relative;
+  padding-left: 1.22666667rem;
+  /* 30px 圆圈宽度 + 16px 间距 */
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.64rem;
+}
+.hero form .choose-unit label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  /* 🎯 圆圈和文字垂直居中 */
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 1px solid #5e6e85;
+  border-radius: 50%;
+  background-color: white;
+  box-sizing: border-box;
+}
+.hero form .choose-unit input[type="radio"]:hover + label::after {
+  border-color: #345ff6;
+}
+.hero form .choose-unit input[type="radio"]:checked + label::after {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  /* 🎯 圆圈和文字垂直居中 */
+  width: 0.4rem;
+  height: 0.4rem;
+  background-color: #345ff6;
+  border-radius: 50%;
+}
+.hero form .metric-input-container {
+  margin-bottom: 0.21333333rem;
+  font-size: 0.42666667rem;
+  display: flex;
+  flex-direction: column;
+}
+.hero form .metric-input-container label {
+  display: block;
+  font-size: 0.37333333rem;
+  color: #5e6e85;
+  margin-bottom: 0.21333333rem;
+}
+.hero form .metric-input-container .input-box {
+  position: relative;
+}
+.hero form .metric-input-container .input-box .unit {
+  position: absolute;
+  right: 0.64rem;
+  top: 1.17333333rem;
+  color: #345ff6;
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+.hero form .metric-input-container .input-box input {
+  width: 7.46666667rem;
+  height: 2.05333333rem;
+  padding: 0.64rem;
+  border-radius: 0.32rem;
+  border-width: 0.02666667rem;
+  border-color: #5e6e85;
+  margin-bottom: 0.42666667rem;
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+.hero form .metric-input-container .input-box input:focus {
+  cursor: pointer;
+  border-color: #345ff6;
+}
+.hero form .imperial-input-container {
+  margin-bottom: 0.21333333rem;
+  font-size: 0.42666667rem;
+}
+.hero form .imperial-input-container label {
+  display: block;
+  font-size: 0.37333333rem;
+  color: #5e6e85;
+  margin-bottom: 0.21333333rem;
+}
+.hero form .imperial-input-container .input-box-container {
+  display: flex;
+  justify-content: space-between;
+}
+.hero form .imperial-input-container .input-box {
+  position: relative;
+  display: inline-block;
+}
+.hero form .imperial-input-container .input-box .unit {
+  position: absolute;
+  right: 0.64rem;
+  top: 0.64rem;
+  color: #345ff6;
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+.hero form .imperial-input-container .input-box input {
+  width: 3.52rem;
+  height: 2.05333333rem;
+  padding: 0.64rem;
+  border-radius: 0.32rem;
+  border-width: 0.02666667rem;
+  border-color: #5e6e85;
+  margin-bottom: 0.42666667rem;
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+.hero form .imperial-input-container .input-box input:focus {
+  cursor: pointer;
+  border-color: #345ff6;
+}
+.hero form .BMI-card {
+  padding: 0.85333333rem;
+  background-color: #345ff6;
+  border-radius: 0.42666667rem;
+  color: white;
+}
+.hero form .BMI-card .BMI-top {
+  font-size: 0.42666667rem;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 0.21333333rem;
+}
+.hero form .BMI-card .BMI-num {
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.42666667rem;
+}
+.hero form .BMI-card .BMI-txt {
+  display: inline-block;
+  font-size: 0.37333333rem;
+  font-weight: 400;
+  color: white;
+  line-height: 1.5;
+}
+.hero form .BMI-card #ideal-span {
+  font-size: 0.37333333rem;
+  line-height: 1.5;
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+}
+.hero form .BMI-card .welcome-text {
+  font-size: 0.64rem;
+  font-weight: 700;
+  color: white;
+}
+.hero form .BMI-card .welcome-text h2 {
+  margin-bottom: 0.21333333rem;
+}
+.hero form .BMI-card .welcome-text p {
+  font-size: 0.37333333rem;
+  font-weight: 400;
+  color: white;
+  line-height: 1.5;
+}
+.result {
+  margin-top: 14.45333333rem;
+  margin-bottom: 1.70666667rem;
+}
+.result .pic {
+  height: 9.44rem;
+  margin-bottom: 1.70666667rem;
+}
+.result .pic img {
+  width: 100%;
+}
+.result .txt {
+  padding: 0 0.64rem;
+}
+.result .txt h2 {
+  font-size: 0.85333333rem;
+  margin-bottom: 0.85333333rem;
+}
+.tips {
+  width: 100%;
+  padding: 1.49333333rem 0.64rem;
+  background: linear-gradient(to right, rgba(214, 252, 254, 0.05), #d6e6fe);
+}
+.tips li {
+  margin-bottom: 1.06666667rem;
+}
+.tips .pic {
+  margin-bottom: 0.85333333rem;
+}
+.tips h4 {
+  font-size: 0.64rem;
+  margin-bottom: 0.64rem;
+}
+.limitations {
+  padding: 2.18666667rem 0.64rem 2.66666667rem;
+}
+.limitations .txt {
+  margin-bottom: 1.49333333rem;
+  text-align: center;
+}
+.limitations h2 {
+  margin-bottom: 0.85333333rem;
+}
+.limitations li {
+  width: 8.72rem;
+  padding: 0.64rem;
+  margin-bottom: 0.42666667rem;
+  background-color: white;
+  border-radius: 0.42666667rem;
+  box-shadow: 0.42666667rem 0.85333333rem 1.49333333rem rgba(143, 174, 207, 0.25);
+}
+.limitations li div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.42666667rem;
+}
+.limitations li div img {
+  width: 0.85333333rem;
+  height: 0.85333333rem;
+  margin-right: 0.42666667rem;
+}
+/*大屏增强-平板*/
+/*如果你们的设计稿只有“移动 + 桌面”两种 → 平板通常继承移动端逻辑（流动）。
+如果设计稿有专门的“平板版” → 那么它通常就是介于移动和桌面之间的“固定字号 + 响应布局”。*/
+@media (min-width: 768px) and (max-width: 1439px) {
+  html {
+    font-size: 37.5px !important;
+    /* 或者 16px 等你希望的固定值*/
+  }
+  .hero {
+    margin: 0 5vw;
+    width: 90vw;
+  }
+  .hero header h1 {
+    width: 600px;
+  }
+  .hero form {
+    padding: 32px;
+  }
+  .hero form .unit-container {
+    width: 40vw;
+  }
+  .hero form .metric-input-container {
+    margin-bottom: 0.21333333rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .hero form .metric-input-container .input-box {
+    position: relative;
+  }
+  .hero form .metric-input-container .input-box .unit {
+    position: absolute;
+    right: 40px;
+    top: 1.17333333rem;
+  }
+  .hero form .metric-input-container .input-box input {
+    width: 40vw;
+  }
+  .hero form .imperial-input-container .input-box input {
+    width: 40vw;
+  }
+  .hero form .BMI-card {
+    display: flex;
+    align-items: center;
+    border-radius: 16px 100px 100px 16px;
+  }
+  .hero form .BMI-card .BMI-card-container {
+    width: 35vw;
+  }
+  .hero form .BMI-card #BMI-card-left {
+    display: flex;
+    flex-direction: column;
+  }
+  .result {
+    display: flex;
+    align-items: center;
+    margin-top: 300px;
+    margin-bottom: 90x;
+  }
+  .result .pic {
+    width: 57vw;
+    max-width: 500px;
+    margin-left: -9vw;
+    margin-right: 5vw;
+  }
+  .result .pic img {
+    max-height: 418px;
+    object-fit: contain;
+  }
+  .result .txt {
+    width: 43vw;
+  }
+  .tips {
+    padding: 60px 5vw;
+  }
+  .tips li {
+    display: flex;
+    align-items: center;
+  }
+  .tips li .pic {
+    margin: 0;
+  }
+  .tips li .tip-txt {
+    margin-left: 5vw;
+  }
+  .limitations {
+    padding: 95px 5vw;
+  }
+  .limitations ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2vw;
+    list-style: none;
+    padding: 0;
+  }
+  .limitations ul li {
+    width: 42vw;
+    padding: 32px;
+  }
+  .limitations ul li:nth-child(5) {
+    grid-column: 1 / span 2;
+    /* 跨两列 */
+    justify-self: center;
+    /* 水平居中 */
+    width: 50%;
+    /* 可以设置宽度让它不占满两列 */
+  }
+}
+/*大屏增强-桌面1440px*/
+/*字号：固定（16px/18px，不随屏幕变化）。
+布局：响应式（flex/grid/media query 控制几列、间距、边距）。*/
+@media (min-width: 1440px) {
+  html {
+    font-size: 37.5px !important;
+    /* 或者 16px 等你希望的固定值*/
+  }
+  .header-bg {
+    width: 70vw;
+    height: 737px;
+  }
+  .hero {
+    margin: 85px 10vw;
+    width: 80vw;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  .hero header {
+    width: 39vw;
+    align-items: start;
+    text-align: left;
+  }
+  .hero header img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 96px;
+  }
+  .hero header h1 {
+    margin-bottom: 32px;
+  }
+  .hero header p {
+    width: 32vw;
+  }
+  .hero form {
+    width: 39vw;
+    padding: 2vw;
+  }
+  .hero form .unit-container {
+    width: 17vw;
+  }
+  .hero form .metric-input-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .hero form .metric-input-container .input-box input {
+    width: 17vw;
+  }
+  .hero form .metric-input-container .input-box input:hover {
+    cursor: pointer;
+    border-color: #345ff6;
+  }
+  .hero form .imperial-input-container .input-box input {
+    width: 17vw;
+  }
+  .hero form .imperial-input-container .input-box input:hover {
+    cursor: pointer;
+    border-color: #345ff6;
+  }
+  .hero form .BMI-card {
+    display: flex;
+    align-items: center;
+    border-radius: 16px 100px 100px 16px;
+  }
+  .hero form .BMI-card .BMI-card-container {
+    width: 35vw;
+  }
+  .hero form .BMI-card #BMI-card-left {
+    display: flex;
+    flex-direction: column;
+  }
+  .result {
+    display: flex;
+    margin: 50px auto 80px;
+    max-width: 1336px;
+    height: 585px;
+  }
+  .result .pic {
+    width: 39vw;
+    max-width: 650px;
+    margin-right: 9vw;
+  }
+  .result .pic img {
+    width: 100%;
+  }
+  .result .txt {
+    margin-top: 180px;
+    width: 32vw;
+  }
+  .tips {
+    padding: 92px 10vw;
+    width: 98vw;
+    border-radius: 0 35px 35px 0;
+  }
+  .tips ul {
+    max-width: 1336px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+  .tips ul li {
+    width: 25.3vw;
+    max-width: 300px;
+  }
+  .limitations {
+    margin: 115px auto;
+    padding: 0;
+    width: 80vw;
+    max-width: 1336px;
+    height: 800px;
+    position: relative;
+  }
+  .limitations .txt {
+    width: 39vw;
+    font-size: 48px;
+    text-align: left;
+  }
+  .limitations ul li {
+    margin: 0;
+    padding: 32px;
+  }
+  .limitations ul #gender {
+    position: absolute;
+    top: 0;
+    right: 10vw;
+  }
+  .limitations ul #age {
+    position: absolute;
+    top: 270px;
+    right: 19vw;
+  }
+  .limitations ul #muscle {
+    position: absolute;
+    top: 270px;
+    right: 0;
+  }
+  .limitations ul #pregnancy {
+    position: absolute;
+    top: 520px;
+    right: 32vw;
+  }
+  .limitations ul #race {
+    position: absolute;
+    top: 520px;
+    right: 13vw;
+  }
+}

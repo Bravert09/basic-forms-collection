@@ -1,0 +1,614 @@
+//out:../css/
+@import "./base.less";
+
+@rootValue: 37.5rem;
+
+//公共样式
+body {
+  font-family: Inter;
+}
+p {
+  font-size: (16 / @rootValue);
+  line-height: 1.5;
+  color: #5e6e85;
+}
+h1 {
+  font-size: (48 / @rootValue);
+  line-height: 1.1;
+  letter-spacing: -0.5%;
+}
+h2 {
+  font-size: (32 / @rootValue);
+  line-height: 1.1;
+  letter-spacing: -0.5%;
+}
+h4 {
+  font-size: (24 / @rootValue);
+}
+h5 {
+  font-size: (20 / @rootValue);
+  line-height: 1.5;
+  letter-spacing: -0.5%;
+}
+
+/*关于数值输入框的统一修改*/
+/*去掉input数值类型的默认的小箭头，Chrome, Safari, Edge */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input:focus {
+  outline: none; /* 去掉input在focus，默认的外框高亮 */
+}
+
+
+.header-bg {
+  width: 100%;
+  height: (650 / @rootValue);
+  background: linear-gradient(
+    to right,
+    rgba(214, 252, 254, 0.05),
+    rgba(214, 230, 254, 1)
+  );
+  //background-color用于纯色的背景，而渐变应该使用background
+  //gradient：（#D6FCFE到#D6E6FE）
+  border-radius: 0 0 (65 / @rootValue) (65 / @rootValue);
+  position: relative;
+}
+.hero {
+  position: absolute;
+  top: (32 / @rootValue);
+  width: (328 / @rootValue);
+  height: (1096 / @rootValue);
+  margin: 0 (24 / @rootValue) (64 / @rootValue);
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: (32 / @rootValue);
+    img {
+      width: (40 / @rootValue);
+      height: (40 / @rootValue);
+      margin-bottom: (32 / @rootValue);
+    }
+    h1 {
+      font-size: (48 / @rootValue);
+      line-height: 1.1;
+      letter-spacing: -0.5%;
+      margin-bottom: (24 / @rootValue);
+    }
+  }
+  form {
+    padding: (24 / @rootValue);
+    background-color: white;
+    border-radius: (26 / @rootValue);
+    box-shadow: (16 / @rootValue) (32 / @rootValue) (56 / @rootValue)
+      rgba(143, 174, 207, 0.25);
+    .choose-unit {
+      margin-bottom: (24 / @rootValue);
+
+      h3 {
+        font-size: (23 / @rootValue);
+        margin-bottom: (24 / @rootValue);
+        letter-spacing: -8%;
+      }
+      .choose-unit-container {
+        display: flex;
+        justify-content: space-between;
+      }
+      //html隐藏了原生的radio，用label重新写
+      label {
+        font-size: (16 / @rootValue);
+        font-weight: 700;
+        position: relative;
+        padding-left: (46 / @rootValue); /* 30px 圆圈宽度 + 16px 间距 */
+        cursor: pointer;
+        display: inline-block;
+        margin-right: (24 / @rootValue);
+      }
+      /*外圆*/
+      label::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%); /* 🎯 圆圈和文字垂直居中 */
+        width: (30 / @rootValue);
+        height: (30 / @rootValue);
+        border: 1px solid #5e6e85;
+        border-radius: 50%;
+        background-color: white;
+        box-sizing: border-box;
+      }
+      input[type="radio"]:hover + label::after {
+        border-color: rgb(52, 95, 246);
+      }
+      /* 选中后的内圆 */
+      input[type="radio"]:checked + label::after {
+        content: "";
+        position: absolute;
+        left: (7.5 / @rootValue);
+        top: 50%;
+        transform: translateY(-50%); /* 🎯 圆圈和文字垂直居中 */
+        width: (15 / @rootValue);
+        height: (15 / @rootValue);
+        background-color: #345ff6;
+        border-radius: 50%;
+        //背景#E1E7FE
+      }
+    }
+
+    .metric-input-container {
+      margin-bottom: (8 / @rootValue);
+      font-size: (16 / @rootValue);
+      display: flex;
+      flex-direction: column;
+
+      label {
+        display: block;
+        font-size: (14 / @rootValue);
+        color: #5e6e85;
+        margin-bottom: (8 / @rootValue);
+      }
+      .input-box {
+        position: relative;
+        .unit {
+          position: absolute;
+          right: (24 / @rootValue);
+          top: (44 / @rootValue);
+          color: #345ff6;
+          font-size: (24 / @rootValue);
+          font-weight: 700;
+        }
+        input {
+          width: (280 / @rootValue);
+          height: (77 / @rootValue);
+          padding: (24 / @rootValue);
+          border-radius: (12 / @rootValue);
+          border-width: (1 / @rootValue);
+          border-color: #5e6e85;
+          margin-bottom: (16 / @rootValue);
+          font-size: (24 / @rootValue);
+          font-weight: 700;
+        }
+        input:focus {
+          cursor: pointer;
+          border-color: rgb(52, 95, 246);
+        }
+      }
+    }
+    .imperial-input-container {
+      margin-bottom: (8 / @rootValue);
+      font-size: (16 / @rootValue);
+
+      label {
+        display: block;
+        font-size: (14 / @rootValue);
+        color: #5e6e85;
+        margin-bottom: (8 / @rootValue);
+      }
+      .input-box-container {
+        display: flex;
+        justify-content: space-between;
+      }
+      .input-box {
+        position: relative;
+        display: inline-block;
+        .unit {
+          position: absolute;
+          right: (24 / @rootValue);
+          top: (24 / @rootValue);
+          color: #345ff6;
+          font-size: (24 / @rootValue);
+          font-weight: 700;
+        }
+        input {
+          width: (132 / @rootValue);
+          height: (77 / @rootValue);
+          padding: (24 / @rootValue);
+          border-radius: (12 / @rootValue);
+          border-width: (1 / @rootValue);
+          border-color: #5e6e85;
+          margin-bottom: (16 / @rootValue);
+          font-size: (24 / @rootValue);
+          font-weight: 700;
+        }
+        input:focus {
+          cursor: pointer;
+          border-color: rgb(52, 95, 246);
+        }
+      }
+    }
+    .BMI-card {
+      padding: (32 / @rootValue);
+      background-color: #345ff6;
+      border-radius: (16 / @rootValue);
+      color: white;
+      .BMI-top {
+        font-size: (16 / @rootValue);
+        font-weight: 500;
+        color: white;
+        margin-bottom: (8 / @rootValue);
+      }
+      .BMI-num {
+        font-size: (48 / @rootValue);
+        font-weight: 700;
+        color: white;
+        margin-bottom: (16 / @rootValue);
+      }
+
+      .BMI-txt {
+        display: inline-block;
+        font-size: (14 / @rootValue);
+        font-weight: 400;
+        color: white;
+        line-height: 1.5;
+      }
+      #ideal-span {
+        font-size: (14 / @rootValue);
+        line-height: 1.5;
+        font-weight: 700;
+        color: white;
+        line-height: 1.2;
+      }
+      .welcome-text {
+        font-size: (24 / @rootValue);
+        font-weight: 700;
+        color: white;
+        h2 {
+          margin-bottom: (8 / @rootValue);
+        }
+        p {
+          font-size: (14 / @rootValue);
+          font-weight: 400;
+          color: white;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}
+
+.result {
+  margin-top: (542 / @rootValue);
+  //background-color: lightgreen;
+  margin-bottom: (64 / @rootValue);
+
+  .pic {
+    height: (354 / @rootValue);
+    margin-bottom: (64 / @rootValue);
+    img {
+      width: 100%;
+    }
+  }
+  .txt {
+    padding: 0 (24 / @rootValue);
+    h2 {
+      font-size: (32 / @rootValue);
+      margin-bottom: (32 / @rootValue);
+    }
+  }
+}
+.tips {
+  width: 100%;
+  padding: (56 / @rootValue) (24 / @rootValue);
+  background: linear-gradient(
+    to right,
+    rgba(214, 252, 254, 0.05),
+    rgba(214, 230, 254, 1)
+  );
+
+  li {
+    margin-bottom: (40 / @rootValue);
+  }
+  .pic {
+    margin-bottom: (32 / @rootValue);
+  }
+  h4 {
+    font-size: (24 / @rootValue);
+    margin-bottom: (24 / @rootValue);
+  }
+}
+.limitations {
+  padding: (82 / @rootValue) (24 / @rootValue) (100 / @rootValue);
+  //background-color: rgb(198, 255, 182);
+  .txt {
+    margin-bottom: (56 / @rootValue);
+    text-align: center;
+  }
+  h2 {
+    margin-bottom: (32 / @rootValue);
+  }
+  li {
+    width: (327 / @rootValue);
+    padding: (24 / @rootValue);
+    margin-bottom: (16 / @rootValue);
+    background-color: white;
+    border-radius: (16 / @rootValue);
+    box-shadow: (16 / @rootValue) (32 / @rootValue) (56 / @rootValue)
+      rgba(143, 174, 207, 0.25);
+    div {
+      display: flex;
+      align-items: center;
+      margin-bottom: (16 / @rootValue);
+      img {
+        width: (32 / @rootValue);
+        height: (32 / @rootValue);
+        margin-right: (16 / @rootValue);
+      }
+    }
+  }
+}
+
+//h1:48;h2:32;h4:24
+/*大屏增强-平板*/
+/*如果你们的设计稿只有“移动 + 桌面”两种 → 平板通常继承移动端逻辑（流动）。
+如果设计稿有专门的“平板版” → 那么它通常就是介于移动和桌面之间的“固定字号 + 响应布局”。*/
+@media (min-width: 768px) and (max-width: 1439px) {
+  html {
+    font-size: 37.5px !important; /* 或者 16px 等你希望的固定值*/
+  }
+  .hero {
+    margin: 0 5vw;
+    width: 90vw;
+    //background-color: aqua;
+    header {
+      h1 {
+        width: 600px;
+      }
+    }
+    form {
+      padding: 32px;
+      .unit-container {
+        width: 40vw;
+      }
+      .metric-input-container {
+        margin-bottom: (8 / @rootValue);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .input-box {
+          position: relative;
+          .unit {
+            position: absolute;
+            right: 40px;
+            top: (44 / @rootValue);
+          }
+          input {
+            width: 40vw;
+          }
+        }
+      }
+      .imperial-input-container {
+        .input-box {
+          input {
+            width: 40vw;
+          }
+        }
+      }
+      .BMI-card {
+        display: flex;
+        align-items: center;
+        border-radius: 16px 100px 100px 16px;
+        .BMI-card-container {
+          width: 35vw;
+        }
+        #BMI-card-left {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+  .result {
+    display: flex;
+    align-items: center;
+    margin-top: 300px;
+    margin-bottom: 90x;
+
+    .pic {
+      width: 57vw;
+      max-width: 500px;
+      margin-left: -9vw;
+      margin-right: 5vw;
+      img {
+        max-height: 418px;
+        object-fit: contain;
+      }
+    }
+    .txt {
+      width: 43vw;
+    }
+  }
+  .tips {
+    padding: 60px 5vw;
+    li {
+      display: flex;
+      align-items: center;
+      .pic {
+        margin: 0;
+      }
+      .tip-txt {
+        margin-left: 5vw;
+      }
+    }
+  }
+  .limitations {
+    padding: 95px 5vw;
+    ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2vw;
+      list-style: none;
+      padding: 0;
+      li {
+        width: 42vw;
+        padding: 32px;
+      }
+      li:nth-child(5) {
+        grid-column: 1 / span 2; /* 跨两列 */
+        justify-self: center; /* 水平居中 */
+        width: 50%; /* 可以设置宽度让它不占满两列 */
+      }
+    }
+  }
+}
+/*大屏增强-桌面1440px*/
+/*字号：固定（16px/18px，不随屏幕变化）。
+布局：响应式（flex/grid/media query 控制几列、间距、边距）。*/
+@media (min-width: 1440px) {
+  html {
+    font-size: 37.5px !important; /* 或者 16px 等你希望的固定值*/
+  }
+  .header-bg {
+    width: 70vw;
+    height: 737px;
+  }
+  .hero {
+    margin: 85px 10vw;
+    width: 80vw;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    header {
+      width: 39vw;
+      align-items: start;
+      text-align: left;
+      img {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 96px;
+      }
+      h1 {
+        margin-bottom: 32px;
+      }
+      p {
+        width: 32vw;
+      }
+    }
+    form {
+      width: 39vw;
+      padding: 2vw;
+      .unit-container {
+        width: 17vw;
+      }
+      .metric-input-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .input-box {
+          input {
+            width: 17vw;
+          }
+          input:hover {
+            cursor: pointer;
+            border-color: rgb(52, 95, 246);
+          }
+        }
+      }
+      .imperial-input-container {
+        .input-box {
+          input {
+            width: 17vw;
+          }
+          input:hover {
+            cursor: pointer;
+            border-color: rgb(52, 95, 246);
+          }
+        }
+      }
+
+      .BMI-card {
+        display: flex;
+        align-items: center;
+        border-radius: 16px 100px 100px 16px;
+        .BMI-card-container {
+          width: 35vw;
+        }
+        #BMI-card-left {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+  .result {
+    display: flex;
+    margin: 50px auto 80px;
+    max-width: 1336px;
+    height: 585px;
+    .pic {
+      width: 39vw;
+      max-width: 650px;
+      margin-right: 9vw;
+      img {
+        width: 100%;
+      }
+    }
+    .txt {
+      margin-top: 180px;
+      width: 32vw;
+    }
+  }
+  .tips {
+    padding: 92px 10vw;
+    width: 98vw;
+    border-radius: 0 35px 35px 0;
+    ul {
+      max-width: 1336px;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+      li {
+        width: 25.3vw;
+        max-width: 300px;
+      }
+    }
+  }
+  .limitations {
+    margin: 115px auto;
+    padding: 0;
+    width: 80vw;
+    max-width: 1336px;
+    height: 800px;
+    position: relative;
+    .txt {
+      width: 39vw;
+      font-size: 48px;
+      text-align: left;
+    }
+    ul {
+      li {
+        margin: 0;
+        padding: 32px;
+      }
+      #gender {
+        position: absolute;
+        top: 0;
+        right: 10vw;
+      }
+      #age {
+        position: absolute;
+        top: 270px;
+        right: 19vw;
+      }
+      #muscle {
+        position: absolute;
+        top: 270px;
+        right: 0;
+      }
+      #pregnancy {
+        position: absolute;
+        top: 520px;
+        right: 32vw;
+      }
+      #race {
+        position: absolute;
+        top: 520px;
+        right: 13vw;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+form{
+    display: flex;
+    flex-direction: column;
+}
+.metric-input-container {
+  margin-bottom: 8 px;
+  font-size: 16 px;
+  display: flex;
+}
+.input-box {
+  margin-left: 50px;
+  position: relative;
+}
+label {
+  display: block;
+  font-size: 14 px;
+  color: #5e6e85;
+  margin-bottom: 8 px;
+}
+input {
+  width: 280 px;
+  height: 77 px;
+  padding: 24 px;
+  border-radius: 12 px;
+  border-width: 1 px;
+  border-color: #5e6e85;
+  margin-bottom: 16 px;
+  font-size: 24 px;
+  font-weight: 700;
+}
+.unit {
+  position: absolute;
+  right: 24 px;
+  top: 44 px;
+  color: #345ff6;
+  font-size: 24 px;
+  font-weight: 700;
+}
