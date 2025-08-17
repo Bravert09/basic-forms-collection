@@ -18,11 +18,11 @@ These codes and forms are bases on MDN docs [https://developer.mozilla.org/en-US
 补充
 - 表单事件触发时机
   <img width="1058" height="643" alt="image" src="https://github.com/user-attachments/assets/293ceb14-f21d-41fb-8fe7-38ab3cb06a17" />
-- 获取表单的值（FormData）
-  const form = document.getElementById("form");
-  const data = new FormData(form);
-  let unit = data.get("unit"); // 取出 name="unit" 的值
-  👉 FormData(form) 会把表单里所有带有 name 属性的元素收集成一个键值对集合。
-  👉 .get("xxx") 就是取对应字段的值。
-  如果是输入框 <input name="unit" value="cm">，就会取到 "cm"
-  如果是单选框/下拉框，就会取当前选中的那个值。
+- 获取表单的值（FormData） <br>
+  const form = document.getElementById("form"); <br>
+  const data = new FormData(form); <br>
+  let unit = data.get("unit"); // 取出 name="unit" 的值 <br>
+  👉 FormData(form) 会把表单里所有带有 name 属性的元素收集成一个键值对集合。 <br>
+  👉 .get("xxx") 就是取对应字段的值。 <br>
+  如果是输入框 <input name="unit" value="cm">，就会取到 "cm" <br>
+  如果是单选框/下拉框，就会取当前选中的那个值。 <br>
