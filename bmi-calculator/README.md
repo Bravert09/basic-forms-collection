@@ -1,4 +1,7 @@
 # introduction
+![alt text](./assets/images/iphone14max-imperial.png)
+![alt text](./assets/images/ipad-metric.png)
+![alt text](./assets/images/desktop-empty.png)
 
 # 1. What are you most proud of?（学到了什么？）
 

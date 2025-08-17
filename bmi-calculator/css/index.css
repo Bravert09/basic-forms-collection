@@ -584,7 +584,7 @@ input:focus {
   .limitations ul #age {
     position: absolute;
     top: 270px;
-    right: 19vw;
+    right: 357px;
   }
   .limitations ul #muscle {
     position: absolute;
@@ -594,11 +594,11 @@ input:focus {
   .limitations ul #pregnancy {
     position: absolute;
     top: 520px;
-    right: 32vw;
+    right: 547px;
   }
   .limitations ul #race {
     position: absolute;
     top: 520px;
-    right: 13vw;
+    right: 180px;
   }
 }

@@ -3,14 +3,14 @@ const metricInput = document.querySelector(".metric-input-container ");
 const imperialInput = document.querySelector(".imperial-input-container ");
 //选择单个元素推荐用 querySelector
 const BMICard = document.querySelector(".BMI-card");
-const BMINum = document.querySelector(".BMI-num");
-const BMITxt = document.querySelector(".BMI-txt");
-const idealSpan = document.getElementById("ideal-span");
+//const BMINum = document.querySelector(".BMI-num");
+//const BMITxt = document.querySelector(".BMI-txt");
+//const idealSpan = document.getElementById("ideal-span");
 const data = new FormData(form);
 let unit = data.get("unit");
 
 //判断BMI分级
-function BMIIndicator(BMI) {
+function BMIIndicator(BMI,BMITxt) {
   if (BMI < 18.5) {
     BMITxt.textContent =
       "Your BMI suggests you're underweight. Your ideal weight is bewteen ";
@@ -25,6 +25,7 @@ function BMIIndicator(BMI) {
       "Your BMI suggests you're obese. Your ideal weight is bewteen ";
   }
 }
+//但是，这里的 BMITxt 指向的并不是 你在 toggleUnits 里面重新获取到的 BMITxt;
 
 // 转换为 st + lbs
 function poundsToStLbs(pounds) {
@@ -85,7 +86,7 @@ function toggleUnits() {
     const idealLow = (18.5 * height * height).toFixed(1);
     const idealHigh = (24.9 * height * height).toFixed(1);
     idealSpan.textContent = idealLow + "kgs" + " - " + idealHigh + "kgs";
-    BMIIndicator(BMI);
+    BMIIndicator(BMI,BMITxt);
   } else if (unit === "imperial") {
     metricInput.style.display = "none";
     imperialInput.style.display = "block";
@@ -112,7 +113,7 @@ function toggleUnits() {
       poundsToStLbs(minPounds) + " - " + poundsToStLbs(maxPounds);
     idealSpan.textContent = idealWeight;
 
-    BMIIndicator(BMI);
+    BMIIndicator(BMI,BMITxt);
   }
 }
 // 页面加载时先调用一次，设置默认显示
